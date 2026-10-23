@@ -1,5 +1,4 @@
-﻿using TestQuests.Behaviours;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,24 +19,6 @@ namespace TestQuests
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
-            try
-            {
-                base.OnGameStart(game, gameStarterObject);
-                if (!(game.GameType is Campaign))
-                {
-                    return;
-                }
-                //AddBehaviors(gameStarterObject as CampaignGameStarter);
-            }
-            catch { }
-        }
-
-        private void AddBehaviors(CampaignGameStarter gameStarterObject)
-        {
-            if(gameStarterObject != null)
-            {
-                gameStarterObject.AddBehavior(new SimpleDeliveryQuest());
-            }
         }
     }
 
