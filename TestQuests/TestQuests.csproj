@@ -250,11 +250,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviours\TestQuestNPCCampaignBehavior.cs" />
     <Compile Include="MySubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Behaviours\" />
     <Folder Include="Quests\" />
   </ItemGroup>
   <ItemGroup>

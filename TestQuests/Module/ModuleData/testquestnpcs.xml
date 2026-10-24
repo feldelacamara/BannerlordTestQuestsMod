@@ -8,7 +8,7 @@
 		default_group="Infantry"
 		is_template="true"
 		is_hero="false"
-		culture="Culture.khuzait"
+		culture="Culture.empire"
 		skill_template="SkillSet.spc_mounted_archery_skills"
 		occupation="Special"
 		face_mesh_cache="true">
@@ -18,14 +18,14 @@
 				version="4"
 				weight="0.3781"
 				build="0.5478"
-				key="000AB40CC0141840AD48BBECA574462983C78887724DBABB65D6686C8527AA8800D866030D8459A5000000000000000000000000000000000000000063AC10C6" />
+				key="000AAC080000109DB976648E6774B835537D86629511323BDCB177278A84F667007776030748B49500000000000000000000000000000000000000003EFC5002"  />
 			<hair_tags>
 				<hair_tag
-					name="khuzait" />
+					name="empire" />
 			</hair_tags>
 			<beard_tags>
 				<beard_tag
-					name="khuzait" />
+					name="empire" />
 			</beard_tags>
 			<tattoo_tags>
 				<tattoo_tag
@@ -55,9 +55,9 @@
 		<Equipments>
 			<EquipmentRoster />
 			<EquipmentSet
-				id="khu_bat_template_medium" />
+				id="emp_bat_template_medium" />
 			<EquipmentSet
-				id="khu_civ_template_default"
+				id="emp_civ_template_default"
 				equipmentType="Civilian" />
 		</Equipments>
 	</NPCCharacter>

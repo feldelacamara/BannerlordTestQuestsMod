@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TestQuests.Behaviours;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,16 @@ namespace TestQuests
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
+            base.OnGameStart(game, gameStarterObject);
+            if(!(game.GameType is Campaign)) return;
+            AddBehaviors(gameStarterObject as CampaignGameStarter);
+            
+        }
+
+        private void AddBehaviors(CampaignGameStarter gameStarterObject)
+        {
+            if (gameStarterObject == null) return;
+            gameStarterObject.AddBehavior(new TestQuestNPCCampaignBehavior());
         }
     }
 
