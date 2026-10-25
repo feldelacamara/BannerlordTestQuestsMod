@@ -54,22 +54,22 @@ namespace TestQuests.Behaviours
 
         public void PlaceInTavern(Dictionary<string, int> unusedUsablePointCount)
         {
+            if (PlayerEncounter.LocationEncounter == null) return;
             Settlement settlement = PlayerEncounter.LocationEncounter.Settlement;
-            if(_spawnedNPC != null && settlement.IsTown && settlement.StringId == _spawnedNPC.CurrentSettlement.StringId && CampaignMission.Current != null)
+            if (settlement == null || settlement.LocationComplex == null) return;
+            Location tavernLoc = settlement.LocationComplex.GetLocationWithId("tavern");
+            if(_spawnedNPC != null && _spawnedNPC.IsAlive && settlement.IsTown && settlement == _spawnedNPC.CurrentSettlement && CampaignMission.Current != null)
             {
-                Location location = CampaignMission.Current.Location;
-                if (location != null && location.StringId == "tavern")
+                LocationCharacter locationCharacterOfHero = settlement.LocationComplex.GetLocationCharacterOfHero(_spawnedNPC);
+                if (locationCharacterOfHero == null) return;
+                locationCharacterOfHero.SpecialTargetTag = "npc_common";
+                if (tavernLoc != null)
                 {
-                    int num;
-                    if (unusedUsablePointCount.TryGetValue("npc_common", out num) && num > 0)
+                    Location heroLoc = settlement.LocationComplex.GetLocationOfCharacter(_spawnedNPC);
+                    if (heroLoc != null && heroLoc.StringId != "tavern")
                     {
-                        Location heroLoc = settlement.LocationComplex.GetLocationOfCharacter(_spawnedNPC);
-                        if (heroLoc != null && heroLoc.StringId != "tavern")
-                        {
-                            LocationCharacter locationCharacterOfHero = settlement.LocationComplex.GetLocationCharacterOfHero(_spawnedNPC);
-                            settlement.LocationComplex.ChangeLocation(locationCharacterOfHero, heroLoc, location);
-                            InformationManager.DisplayMessage(new InformationMessage("Frylock and I'm on top"));
-                        }
+                        settlement.LocationComplex.ChangeLocation(locationCharacterOfHero, heroLoc, tavernLoc);
+                        InformationManager.DisplayMessage(new InformationMessage("Frylock and I'm on top"));
                     }
                 }
             }
