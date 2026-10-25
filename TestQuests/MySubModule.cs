@@ -20,24 +20,16 @@ namespace TestQuests
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
-            try
-            {
-                base.OnGameStart(game, gameStarterObject);
-                if (!(game.GameType is Campaign))
-                {
-                    return;
-                }
-                //AddBehaviors(gameStarterObject as CampaignGameStarter);
-            }
-            catch { }
+            base.OnGameStart(game, gameStarterObject);
+            if(!(game.GameType is Campaign)) return;
+            AddBehaviors(gameStarterObject as CampaignGameStarter);
+            
         }
 
         private void AddBehaviors(CampaignGameStarter gameStarterObject)
         {
-            if(gameStarterObject != null)
-            {
-                gameStarterObject.AddBehavior(new SimpleDeliveryQuest());
-            }
+            if (gameStarterObject == null) return;
+            gameStarterObject.AddBehavior(new TestQuestNPCCampaignBehavior());
         }
     }
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NPCCharacters>
+	<NPCCharacter
+		id="testquest_npc1"
+		name="Claude"
+		age="26"
+		voice="earnest"
+		default_group="Infantry"
+		is_template="true"
+		is_hero="false"
+		culture="Culture.empire"
+		skill_template="SkillSet.spc_mounted_archery_skills"
+		occupation="Special"
+		face_mesh_cache="true">
+		<face>
+			<!-- placeholder face key -->
+			
+			<BodyProperties
+				version="4"
+				weight="0.2786" 
+				build="0.2257"  
+				key="0008940B9600319D423397424685247459B94497A355BA26ABA5330734996222009346030987D335000000000000000000000000000000000000000055244082"  />
+			<hair_tags>
+				<hair_tag
+					name="empire" />
+			</hair_tags>
+			<beard_tags>
+				<beard_tag
+					name="empire" />
+			</beard_tags>
+			<tattoo_tags>
+				<tattoo_tag
+					name="Cleanface" />
+			</tattoo_tags>
+		</face>
+		<Traits>
+			<Trait
+				id="HorseArcherFightingSkills"
+				value="6" />
+			<Trait
+				id="Commander"
+				value="12" />
+			<Trait
+				id="Politician"
+				value="8" />
+			<Trait
+				id="Manager"
+				value="6" />
+			<Trait
+				id="Valor"
+				value="1" />
+			<Trait
+				id="Calculating"
+				value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster />
+			<EquipmentSet
+				id="emp_bat_template_medium" />
+			<EquipmentSet
+				id="emp_civ_template_default"
+				equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+</NPCCharacters>

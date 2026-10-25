@@ -1,0 +1,41 @@
+ <Module>
+     <Name value="Test Quests"/>
+     <Id value="TestQuests"/>
+     <Version value="v0.0.5"/>
+     <SingleplayerModule value="true"/>
+     <MultiplayerModule value="false"/>
+     <DependedModules>
+         <DependedModule Id="Native"/>
+         <DependedModule Id="SandBoxCore"/>
+         <DependedModule Id="Sandbox"/>
+         <DependedModule Id="CustomBattle"/>
+         <DependedModule Id="StoryMode" />
+     </DependedModules>
+     <SubModules>
+         <SubModule>
+             <Name value="TestQuests"/>
+             <DLLName value="TestQuests.dll"/>
+             <SubModuleClassType value="TestQuests.MySubModule"/>
+             <Tags>
+                 <Tag key="DedicatedServerType" value="none" />
+                 <Tag key="IsNoRenderModeElement" value="false" />
+             </Tags>
+         </SubModule>
+     </SubModules>
+	 <Xmls>
+		<XmlNode>                
+			<XmlName id="NPCCharacters" path="testquestnpcs" />
+			<IncludedGameTypes>
+				<GameType value="Campaign" />
+				<GameType value="CampaignStoryMode" />
+			</IncludedGameTypes>
+		</XmlNode>
+		<XmlNode>                
+			<XmlName id="Heroes" path="testquestheroes" />
+			<IncludedGameTypes>
+				<GameType value="Campaign" />
+				<GameType value="CampaignStoryMode" />
+			</IncludedGameTypes>
+		</XmlNode>
+     </Xmls>
+ </Module>
