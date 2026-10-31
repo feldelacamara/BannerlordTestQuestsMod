@@ -103,12 +103,12 @@ namespace TestQuests.Behaviours
 
         private void AddDialogue(CampaignGameStarter campaignGameStarter)
         {
-            campaignGameStarter.AddDialogLine("testQuestNPC_start_talk", "start", "testQuestNPC_answer1", "{?PLAYER.GENDER}M'lady{?}M'lord{\\?}, I ask you to pay me no mind. I'm afraid my troubles of late weigh too heavy on my mind to provide ye with good company.", new ConversationSentence.OnConditionDelegate(this.IsConversationAgentTestQuestNPC), null, 200, null);
-            campaignGameStarter.AddPlayerLine("testQuestNPC_player_response1", "testQuestNPC_answer1", "testQuestNPC_Exit_Nice", "I understand too well friend. Here, have a drink on me. ({GOLD_GIFT} {GOLD_ICON})", new ConversationSentence.OnConditionDelegate(this.CanGiveNPCADrink), new ConversationSentence.OnConsequenceDelegate(this.GiveNPCADrink), 100, new ConversationSentence.OnClickableConditionDelegate(this.DoesPlayerHaveGold));
-            campaignGameStarter.AddPlayerLine("testQuestNPC_player_response2", "testQuestNPC_answer1", "testQuestNPC_Exit_Rude", "Believe me churl, I want nothing of you or your paltry issues.", null, null, 100, null);
-            campaignGameStarter.AddPlayerLine("testQuestNPC_player_response3", "testQuestNPC_answer1", "close_window", "I see, carry on then.", null, null, 100, null);
-            campaignGameStarter.AddDialogLine("testQuestNPC_dialog1_nice", "testQuestNPC_Exit_Nice", "close_window", "You're too kind. May the heavens bless you {?PLAYER.GENDER}my lady{?}my lord{\\?}.", null, null, 100, null);
-            campaignGameStarter.AddDialogLine("testQuestNPC_dialog1_rude", "testQuestNPC_Exit_Rude", "close_window", "(He mumbles under his breath) Foul {?PLAYER.GENDER}shrew{?}cur{\\?}.", null, null, 100, null);
+            campaignGameStarter.AddDialogLine("testQuestNPC_start_talk", "start", "testQuestNPC_answer1", "{TQNPC1_GREET1}{?PLAYER.GENDER}M'lady{?}M'lord{\\?}, I ask you to pay me no mind. I'm afraid my troubles of late weigh too heavy on my mind to provide ye with good company.", new ConversationSentence.OnConditionDelegate(this.IsConversationAgentTestQuestNPC), null, 200, null);
+            campaignGameStarter.AddPlayerLine("testQuestNPC_player_response1", "testQuestNPC_answer1", "testQuestNPC_Exit_Nice", "{TQNPC1_PR1}I understand too well friend. Here, have a drink on me. ({GOLD_GIFT} {GOLD_ICON})", new ConversationSentence.OnConditionDelegate(this.CanGiveNPCADrink), new ConversationSentence.OnConsequenceDelegate(this.GiveNPCADrink), 100, new ConversationSentence.OnClickableConditionDelegate(this.DoesPlayerHaveGold));
+            campaignGameStarter.AddPlayerLine("testQuestNPC_player_response2", "testQuestNPC_answer1", "testQuestNPC_Exit_Rude", "{TQNPC1_PR2}Believe me churl, I want nothing of you or your paltry issues.", null, null, 100, null);
+            campaignGameStarter.AddPlayerLine("testQuestNPC_player_response3", "testQuestNPC_answer1", "close_window", "{TQNPC1_PR3}I see, carry on then.", null, null, 100, null);
+            campaignGameStarter.AddDialogLine("testQuestNPC_dialog1_nice", "testQuestNPC_Exit_Nice", "close_window", "{TQNPC1_KR1}You're too kind. May the heavens bless you {?PLAYER.GENDER}my lady{?}my lord{\\?}.", null, null, 100, null);
+            campaignGameStarter.AddDialogLine("testQuestNPC_dialog1_rude", "testQuestNPC_Exit_Rude", "close_window", "{TQNPC1_MR1}(He mumbles under his breath) Foul {?PLAYER.GENDER}shrew{?}cur{\\?}.", null, null, 100, null);
         }
         private bool IsConversationAgentTestQuestNPC()
         {
@@ -128,7 +128,7 @@ namespace TestQuests.Behaviours
         {
             if (Hero.MainHero.Gold < GiftCost)
             {
-                explanation = new TextObject("Broke ass", null);
+                explanation = new TextObject("{TQNPC1_BROKE}Broke ass", null);
                 return false;
             }
             explanation = null;

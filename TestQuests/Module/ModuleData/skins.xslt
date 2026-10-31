@@ -29,6 +29,7 @@
 					<style_tag name="BraidedAndLong" />
 					<style_tag name="empire" />
 					<style_tag name="vlandia" />
+					<style_tag name="TestQuestHair" />
 				</style_tags>
 			</hair_mesh>
 		</xsl:copy>
